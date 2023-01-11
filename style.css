@@ -1,21 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
 body{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family: monospace;
+    margin: 0px;
+    padding: 0px;
+    
 }
-
+.container{
+    width: 100%;
+    background-color: #78a7dd;
+    padding-block: 5%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+.header{
+    color: rgb(252, 246, 246);
+    
+   font-size: x-large;
+}
 .game{
     display: flex;
+    font-size: x-large;
 }
+.choices{
+    display: flex;
+    align-items: center;
+}
+
 .player,
 .computer{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
 }
+
+.computerScore,
+.playerScore{
+    text-align: center;
+}
+
 button{
-    border: 0;
+    border: 2%;
+    border-radius: 2px;
 }
 img{
     height: 70px;

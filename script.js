@@ -3,8 +3,6 @@ let winString = "";
 const result = document.querySelector("#output");
 let scorePlayer = 0, scoreComputer = 0;
 
-
-
 function getPlayerChoice() {
     const btn = document.querySelectorAll('.playerChoice>button');
     btn.forEach((button) => {
@@ -114,14 +112,12 @@ function game(){
         }
         
         if(scoreComputer === 5){
-            const buttons = document.querySelector(".choices")
             removeDiv.remove();
             result.textContent = "PC Won";
             reloadGame();
             return;
         } else if (scorePlayer === 5){
             console.log("You Won");
-            const buttons = document.querySelector(".choices")
             removeDiv.remove();
             result.textContent = "You Won";
             reloadGame();
@@ -150,6 +146,7 @@ function reloadGame() {
 
         const paperButton = document.createElement('button');
         paperButton.textContent = "Paper";
+        paperButton.style.margin = '5px';
         subContainer.appendChild(paperButton);
 
         const scissorsButton = document.createElement('button');
@@ -169,4 +166,3 @@ function reloadGame() {
         game();
     })
 }
- 
