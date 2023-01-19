@@ -2,6 +2,8 @@ let win = "";
 let winString = "";
 const result = document.querySelector("#output");
 let scorePlayer = 0, scoreComputer = 0;
+let playerCurrentScore = document.querySelector(".playerScore");
+let computerCurrentScore = document.querySelector(".computerScore");
 
 function getPlayerChoice() {
     const btn = document.querySelectorAll('.playerChoice>button');
@@ -82,13 +84,8 @@ function playRound(playerSelection,computerSelection) {
 }
 
 function game(){
-    let playerCurrentScore = document.querySelector(".playerScore");
     playerCurrentScore.textContent = scorePlayer;
-
-    let computerCurrentScore = document.querySelector(".computerScore");
     computerCurrentScore.textContent = scoreComputer;
-
-    const removeDiv = document.querySelector(".playerChoice");
 
     const btn = document.querySelectorAll('.playerChoice>button');
     btn.forEach((button) => {
@@ -112,16 +109,15 @@ function game(){
         }
         
         if(scoreComputer === 5){
-            removeDiv.remove();
+            //removeDiv.remove();
             result.textContent = "PC Won";
             reloadGame();
-            return;
+            
         } else if (scorePlayer === 5){
             console.log("You Won");
-            removeDiv.remove();
+            //removeDiv.remove();
             result.textContent = "You Won";
             reloadGame();
-            return;
         }
     });
 });
@@ -130,39 +126,13 @@ game();
 
 
 function reloadGame() {
-   
-    const container = document.querySelector('.choices')
-    const addDiv = document.createElement('div')
-    addDiv.classList.add('playerChoice');
-    container.appendChild(addDiv);
-
-    const subContainer = document.querySelector('.playerChoice');
     const reload = document.querySelector(".reload");
     reload.addEventListener('click', () => {
-        const rockButton = document.createElement('button');
-        rockButton.textContent = "Rock";
-        rockButton.setAttribute("id","rock");
-        subContainer.appendChild(rockButton);
-
-        const paperButton = document.createElement('button');
-        paperButton.textContent = "Paper";
-        paperButton.style.margin = '5px';
-        subContainer.appendChild(paperButton);
-
-        const scissorsButton = document.createElement('button');
-        scissorsButton.textContent = "Scissor";
-        subContainer.appendChild(scissorsButton);
-
         result.textContent = "";
-        
         scoreComputer = 0;
-        let computerCurrentScore = document.querySelector(".computerScore");
         computerCurrentScore.textContent = scoreComputer;
-        
 
         scorePlayer = 0;
-        let playerCurrentScore = document.querySelector(".playerScore");
         playerCurrentScore.textContent = scorePlayer;
-        game();
     })
 }
